@@ -22,6 +22,7 @@ defmodule GraoMestreWeb.Router do
     resources "/users", UsersController, only: [:show, :update, :delete]
     resources "/coffees", CoffeesController, only: [:create, :show, :update, :delete]
     resources "/recipes", RecipesController, only: [:create, :show, :update, :delete]
+    get "/recipes", RecipesController, :show_all
     resources "/votes", VotesController, only: [:create, :show, :update, :delete]
     resources "/friendships", FriendshipsController, only: [:create, :show, :update, :delete]
     resources "/comments", CommentsController, only: [:create, :show, :update, :delete]

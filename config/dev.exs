@@ -3,7 +3,7 @@ import Config
 # Configure your database
 config :grao_mestre, GraoMestre.Repo,
   username: "postgres",
-  password: "postgres",
+  password: "abc@123#",
   hostname: "localhost",
   database: "grao_mestre",
   stacktrace: true,

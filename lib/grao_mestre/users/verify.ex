@@ -10,7 +10,7 @@ defmodule GraoMestre.Users.Verify do
   end
 
   defp verify(user, password) do
-    case Argon2.verify_pass(password, user.password_hash) do
+    case Pbkdf2.verify_pass(password, user.password_hash) do
       true -> {:ok, user}
       false -> {:error, %{error: "Email e/ou senha incorretos"}}
     end

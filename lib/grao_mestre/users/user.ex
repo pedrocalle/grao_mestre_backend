@@ -4,8 +4,8 @@ defmodule GraoMestre.Users.User do
 
   alias Ecto.Changeset
 
-  @required_params_create [:name, :email, :password, :country]
-  @required_params_update [:name, :email, :country]
+  @required_params_create [:name, :email, :password]
+  @required_params_update [:name, :email]
 
   @primary_key {:id, Ecto.UUID, autogenerate: true}
 
@@ -40,8 +40,8 @@ defmodule GraoMestre.Users.User do
   end
 
   defp add_password_hash(%Changeset{valid?: true, changes: %{password: password}} = changeset) do
-    salt = Argon2.Base.gen_salt()
-    change(changeset, password_hash: Argon2.Base.hash_password(password, salt))
+    salt = Pbkdf2.Base.gen_salt()
+    change(changeset, password_hash: Pbkdf2.Base.hash_password(password, salt))
   end
 
   defp add_password_hash(changeset), do: changeset

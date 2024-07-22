@@ -8,6 +8,7 @@ defmodule GraoMestreWeb.UsersController do
   action_fallback GraoMestreWeb.FallbackController
 
   def create(conn, params) do
+    params = Map.put(params, "country", "Brasil")
     with {:ok, %User{} = user} <- Users.create(params) do
       conn
       |> put_status(:created)
