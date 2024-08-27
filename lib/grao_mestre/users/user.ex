@@ -2,6 +2,7 @@ defmodule GraoMestre.Users.User do
   use Ecto.Schema
   import Ecto.Changeset
 
+  alias GraoMestre.Recipes.Recipe
   alias Ecto.Changeset
 
   @required_params_create [:name, :email, :password]
@@ -18,6 +19,7 @@ defmodule GraoMestre.Users.User do
     field :about_me, :string
     field :profile_picture, :string
     field :password, :string, virtual: true
+    has_many :recipes, Recipe
 
     timestamps()
   end

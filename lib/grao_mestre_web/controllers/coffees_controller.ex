@@ -21,6 +21,14 @@ defmodule GraoMestreWeb.CoffeesController do
     end
   end
 
+  def search(conn,%{"query" => query}) do
+    with coffees <- Coffees.search(query) do
+      conn
+      |> put_status(:ok)
+      |> render(:search, coffees: coffees)
+    end
+  end
+
   def update(conn, params) do
     with {:ok, %Coffee{} = coffee} <- Coffees.update(params) do
       conn

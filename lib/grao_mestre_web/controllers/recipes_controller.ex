@@ -26,10 +26,10 @@ defmodule GraoMestreWeb.RecipesController do
   end
 
   def show_all(conn, _) do
-    with {:ok, list} <- Recipes.get_all() do
+    with {:ok, recipes} <- Recipes.get_all() do
       conn
       |> put_status(:ok)
-      |> json(list)
+      |> render(:show_all, %{recipes: recipes})
     end
   end
 

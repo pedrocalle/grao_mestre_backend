@@ -1,4 +1,5 @@
 defmodule GraoMestre.Users do
+  alias GraoMestre.Users.Search
   alias GraoMestre.Users.Delete
   alias GraoMestre.Users.Update
   alias GraoMestre.Users.Get
@@ -10,4 +11,5 @@ defmodule GraoMestre.Users do
   defdelegate update(params), to: Update, as: :call
   defdelegate delete(id), to: Delete, as: :call
   defdelegate login(params), to: Verify, as: :call
+  defdelegate search(query), to: Search, as: :call
 end

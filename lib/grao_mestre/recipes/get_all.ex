@@ -1,13 +1,11 @@
 defmodule GraoMestre.Recipes.GetAll do
-  import Ecto.Query
   alias GraoMestre.Repo
   alias GraoMestre.Recipes.Recipe
 
   def call() do
-    recipe_query = from r in Recipe, preload: [:user, :coffee]
-    case Repo.all(recipe_query) do
+    case Repo.all(Recipe) do
       nil -> {:error, %{error: "Lista está vazia"}}
-      list -> {:ok, list}
+      list -> {:ok, Enum.map(list, fn data -> Repo.preload(data, [:user, :coffee]) end)}
     end
   end
 end

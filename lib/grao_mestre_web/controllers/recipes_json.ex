@@ -12,6 +12,12 @@ defmodule GraoMestreWeb.RecipesJSON do
 
   def show(%{recipe: recipe}), do: data(recipe)
 
+  def show_all(%{recipes: recipes}) do
+    %{
+      data: Enum.map(recipes, &data_get(&1))
+    }
+  end
+
   def update(%{recipe: recipe}) do
     %{
       message: "Receita atualizada com sucesso!",
@@ -26,7 +32,7 @@ defmodule GraoMestreWeb.RecipesJSON do
     }
   end
 
-  def data(%Recipe{} = recipe) do
+  def data_get(%Recipe{} = recipe) do
     %{
       id: recipe.id,
       user_id: recipe.user_id,
@@ -44,10 +50,25 @@ defmodule GraoMestreWeb.RecipesJSON do
       score: recipe.score
     }
   end
+  def data(%Recipe{} = recipe) do
+    %{
+      id: recipe.id,
+      user_id: recipe.user_id,
+      coffee_id: recipe.coffee_id,
+      coffee_weight: recipe.coffe_weight,
+      coffee_type: recipe.coffee_type,
+      grind: recipe.grind,
+      water_weight: recipe.water_weight,
+      temperature: recipe.temperature,
+      preparation_method: recipe.preparation_method,
+      description: recipe.description,
+      image: recipe.image,
+      score: recipe.score
+    }
+  end
 
   def user(%User{} = user) do
     %{
-      id: user.id,
       name: user.name,
       email: user.email,
       country: user.country
@@ -56,7 +77,6 @@ defmodule GraoMestreWeb.RecipesJSON do
 
   def coffee(%Coffee{} = coffee) do
     %{
-      id: coffee.id,
       name: coffee.name,
       average_score: coffee.average_score,
       picture: coffee.picture

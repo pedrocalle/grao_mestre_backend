@@ -9,7 +9,6 @@ defmodule GraoMestreWeb.CommentsController do
   def create(conn, params) do
     %{user_id: user_id} = conn.assigns[:user_id]
     params = Map.put(params, "user_id", user_id)
-
     with {:ok, %Comment{} = comment} <- Comments.create(params) do
       conn
       |> put_status(:created)

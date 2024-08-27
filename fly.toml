@@ -1,9 +1,9 @@
-# fly.toml app configuration file generated for grao-mestre-backend-shy-pine-4307 on 2024-07-19T15:01:29-03:00
+# fly.toml app configuration file generated for grao-mestre-backend-floral-butterfly-148 on 2024-07-23T09:52:59-03:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = 'grao-mestre-backend-shy-pine-4307'
+app = 'grao-mestre-backend-floral-butterfly-148'
 primary_region = 'gru'
 kill_signal = 'SIGTERM'
 
@@ -13,7 +13,7 @@ kill_signal = 'SIGTERM'
   release_command = '/app/bin/migrate'
 
 [env]
-  PHX_HOST = 'grao-mestre-backend-shy-pine-4307.fly.dev'
+  PHX_HOST = 'grao-mestre-backend-floral-butterfly-148.fly.dev'
   PORT = '8080'
 
 [http_service]

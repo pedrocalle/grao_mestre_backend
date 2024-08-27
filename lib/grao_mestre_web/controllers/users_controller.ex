@@ -24,6 +24,23 @@ defmodule GraoMestreWeb.UsersController do
     end
   end
 
+  def search(conn, %{"query" => query}) do
+    with users <- Users.search(query) do
+      conn
+      |> put_status(:ok)
+      |> render(:search, %{users: users})
+    end
+  end
+
+  def get_me(conn, _) do
+    %{user_id: user_id} = conn.assigns[:user_id]
+    with {:ok, %User{} = user} <- Users.get(user_id) do
+      conn
+      |> put_status(:ok)
+      |> render(:get, %{user: user})
+    end
+  end
+
   def update(conn, params) do
     with {:ok, %User{} = user} <- Users.update(params) do
       conn

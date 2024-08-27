@@ -10,6 +10,8 @@ defmodule GraoMestreWeb.CoffeesJSON do
 
   def get(%{coffee: coffee}), do: data(coffee)
 
+  def search(%{coffees: coffees}), do: Enum.map(coffees, &data(&1))
+
   def update(%{coffee: coffee}) do
     %{
       message: "Café atualizado com sucesso",
