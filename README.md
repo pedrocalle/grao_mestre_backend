@@ -1,18 +1,15 @@
-# GraoMestre
+# GraoMestre - Elixir API for Coffee Review Social Network
 
-To start your Phoenix server:
+CoffeeRate Backend é a API desenvolvida em Elixir utilizando o Phoenix Framework para fornecer o suporte de backend ao aplicativo móvel GraoMestre. Esta API gerencia a lógica de negócios, autenticação, armazenamento de dados e fornece endpoints RESTful para o cliente mobile consumir.
 
-  * Run `mix setup` to install and setup dependencies
-  * Start Phoenix endpoint with `mix phx.server` or inside IEx with `iex -S mix phx.server`
+Funcionalidades Principais:
+- Gerenciamento de Usuários: Criação, autenticação e gerenciamento de perfis de usuário.
+- Avaliações de Cafés: Endpoints para criação, edição e exclusão de avaliações de cafés, incluindo notas e comentários.
+- Interações Sociais: Suporte para funcionalidades de seguir outros usuários, curtir e comentar nas avaliações.
 
-Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
-
-Ready to run in production? Please [check our deployment guides](https://hexdocs.pm/phoenix/deployment.html).
-
-## Learn more
-
-  * Official website: https://www.phoenixframework.org/
-  * Guides: https://hexdocs.pm/phoenix/overview.html
-  * Docs: https://hexdocs.pm/phoenix
-  * Forum: https://elixirforum.com/c/phoenix-forum
-  * Source: https://github.com/phoenixframework/phoenix
+Ferramentas:
+- Elixir: Linguagem de programação funcional para o backend.
+- Phoenix Framework: Framework web para Elixir, utilizado para criar a API e os canais de comunicação em tempo real.
+- Ecto: Biblioteca de mapeamento objeto-relacional (ORM) para Elixir, utilizada para interações com o banco de dados.
+- PostgreSQL: Banco de dados relacional utilizado para armazenamento de dados.
+- JWT (JSON Web Tokens): Para autenticação segura de usuários.
